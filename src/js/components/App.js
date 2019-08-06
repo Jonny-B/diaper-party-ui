@@ -18,7 +18,7 @@ export class App extends Component {
     }
 
     componentWillMount() {
-        axios.get(`http://localhost:3000/count`).then(res => {
+        axios.get(`http://diaper-party.herokuapp.com/count`).then(res => {
             this.setState({hotdog: res.data[0], burger: res.data[1]});
         });
 
@@ -37,7 +37,7 @@ export class App extends Component {
 
 
         if (votes < 3 && url.includes('add')) {
-            axios.post(`http://localhost:3000/${url}`).then(res => {
+            axios.post(`http://diaper-party.herokuapp.com/${url}`).then(res => {
                 if (value === 'hotdog') {
                     this.setState({hotdog: res.data})
                 } else {
@@ -48,7 +48,7 @@ export class App extends Component {
             document.cookie = `votes=${votes + 1}; expires=Fri, 19 Aug 2019 23:59:59 GMT`
         }
         if (votes > 0 && url.includes('subtract')) {
-            axios.post(`http://localhost:3000/${url}`).then(res => {
+            axios.post(`http://diaper-party.herokuapp.com/${url}`).then(res => {
                 if (value === 'hotdog') {
                     this.setState({hotdog: res.data})
                 } else {
