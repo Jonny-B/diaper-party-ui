@@ -6,51 +6,37 @@ const GetUsers = (props) => {
     return (
         <div className="body" id={"getUsers"}>
             <header className="App-header" id={"appHeader"}>
-                <Grid container justify={"center"} alignItems={"center"}>
+                <Grid container justify={"center"} alignItems={"center"} direction={'column'} className={props.classes.grid}>
                     <Grid item xs={12}>
-                        <Typography className={props.classes.greeting}>Jon's Diaper Party</Typography>
+                        <Typography className={props.classes.greeting} variant={'h3'}>Jon's Diaper Party</Typography>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} variant={'h4'}>
                         <Typography className={props.classes.greeting}>To help us know how much food to buy</Typography>
                     </Grid>
-                    <Grid item xs={12}>
-                        <Typography className={props.classes.greeting}>Select how many of each you want (up to three)</Typography>
+                    <Grid item xs={12} varient={'h5'}>
+                        <Typography className={props.classes.greeting}>Select how many you want</Typography>
                     </Grid>
-                    <Grid item xs={3}>
+
+                    <Grid item xs={12} className={props.classes.item}>
                         <Button onClick={() => {
-                            props.handleClick('hotdog','subtract/hotdog')
+                            props.handleClick('hotdog', 'subtract/hotdog')
                         }} className={props.classes.button} id={'subtract/hotdog'}>-</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Typography>Hot Dog</Typography>
-                    </Grid>
-                    <Grid item xs={3}>
+                        <Typography className={props.classes.food}>Hot Dog</Typography>
                         <Button onClick={() => {
                             props.handleClick('hotdog', 'add/hotdog')
                         }} className={props.classes.button} id={'add/hotdog'}>+</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Typography>{props.hotdog}</Typography>
+                        <Typography className={props.classes.gridItem}>{props.hotdog}</Typography>
                     </Grid>
 
-                    <Grid item xs={3}>
+                    <Grid item xs={12} className={props.classes.item}>
                         <Button onClick={() => {
-                            props.handleClick('burger','subtract/burger')
+                            props.handleClick('burger', 'subtract/burger')
                         }} className={props.classes.button} id={'subtract/burger'}>-</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Typography>Not Hotdog (aka Burger)</Typography>
-                    </Grid>
-                    <Grid item xs={3}>
+                        <Typography className={props.classes.food}>Not Hotdog (aka Burger)</Typography>
                         <Button onClick={() => {
                             props.handleClick('burger', 'add/burger')
                         }} className={props.classes.button} id={'add/burger'}>+</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Typography>{props.burger}</Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography className={props.classes.greeting}>Also hidden somewhere on this site is an easter egg. If someone finds it they get a $5 gift card!</Typography>
+                        <Typography className={props.classes.gridItem}>{props.burger}</Typography>
                     </Grid>
                 </Grid>
             </header>
@@ -65,7 +51,22 @@ const styles = {
     button: {
         backgroundColor: 'lightblue',
         marginLeft: '15px',
-        marginRight: '15px'
+        marginRight: '15px',
+        float: 'left'
+    },
+    grid: {
+        margin: '8x',
+        textAlign: 'center'
+    },
+    gridItem: {
+        float: 'left'
+    },
+    food: {
+        float: 'left',
+        width: '100px'
+    },
+    item: {
+        margin: '8px'
     }
 };
 

@@ -18,9 +18,9 @@ export class App extends Component {
     }
 
     componentWillMount() {
-        axios.get(`https://diaper-party.herokuapp.com/count`).then(res => {
-            this.setState({hotdog: res.data[0], burger: res.data[1]});
-        });
+        // axios.get(`https://diaper-party.herokuapp.com/count`).then(res => {
+        //     this.setState({hotdog: res.data[0], burger: res.data[1]});
+        // });
 
         if (document.cookie.includes('votes') !== true) {
             document.cookie = 'votes=0; expires=Fri, 19 Aug 2019 23:59:59 GMT'
