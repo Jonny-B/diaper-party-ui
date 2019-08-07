@@ -32,7 +32,7 @@ const GetUsers = (props) => {
                         <Button onClick={() => {
                             props.handleClick('burger', 'subtract/burger')
                         }} className={props.classes.button} id={'subtract/burger'}>-</Button>
-                        <Typography className={props.classes.food}>Not Hotdog (aka Burger)</Typography>
+                        <Typography className={props.classes.food}>Not Hot Dog (aka Burger)</Typography>
                         <Button onClick={() => {
                             props.handleClick('burger', 'add/burger')
                         }} className={props.classes.button} id={'add/burger'}>+</Button>
