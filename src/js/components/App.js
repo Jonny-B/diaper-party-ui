@@ -46,9 +46,9 @@ export class App extends Component {
 
     handleClick = (value, url) => {
         let collection = new Collection(document.cookie.split(';'));
-        let votes = parseInt(collection[collection.find_index((s) => {
+        let votes = collection[collection.find_index((s) => {
             return s.includes('votes')
-        })]);
+        })];
             
        votes = parseInt(votes ? votes.split('=')[1] : 0)
 
