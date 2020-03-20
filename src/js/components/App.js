@@ -48,8 +48,9 @@ export class App extends Component {
         let collection = new Collection(document.cookie.split(';'));
         let votes = parseInt(collection[collection.find_index((s) => {
             return s.includes('votes')
-        })].split('=')[1]);
-
+        })]);
+            
+       votes = parseInt(votes ? votes.split('=')[1] : 0)
 
         if (votes < 3 && url.includes('add')) {
             axios.post(`https://diaper-party.herokuapp.com/${url}`);
