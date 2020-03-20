@@ -19,13 +19,13 @@ export class App extends Component {
 
     componentWillMount() {
         if (document.cookie.includes('votes') !== true) {
-            document.cookie = 'votes=0; expires=Fri, 19 Aug 2019 23:59:59 GMT'
+            document.cookie = 'votes=0; expires=Fri, 19 Aug 2099 23:59:59 GMT'
         }
         if (document.cookie.includes('hotdog') !== true) {
-            document.cookie = 'hotdog=0; expires=Fri, 19 Aug 2019 23:59:59 GMT'
+            document.cookie = 'hotdog=0; expires=Fri, 19 Aug 2099 23:59:59 GMT'
         }
         if (document.cookie.includes('burger') !== true) {
-            document.cookie = 'burger=0; expires=Fri, 19 Aug 2019 23:59:59 GMT'
+            document.cookie = 'burger=0; expires=Fri, 19 Aug 2099 23:59:59 GMT'
         }
 
         let collection = new Collection(document.cookie.split(';'));
@@ -55,24 +55,24 @@ export class App extends Component {
         if (votes < 3 && url.includes('add')) {
             axios.post(`https://diaper-party.herokuapp.com/${url}`);
 
-            document.cookie = `votes=${votes + 1}; expires=Fri, 19 Aug 2019 23:59:59 GMT`;
+            document.cookie = `votes=${votes + 1}; expires=Fri, 19 Aug 2099 23:59:59 GMT`;
             if (value === 'hotdog') {
-                document.cookie = `hotdog=${this.state.hotdog + 1}; expires=Fri, 19 Aug 2019 23:59:59 GMT`;
+                document.cookie = `hotdog=${this.state.hotdog + 1}; expires=Fri, 19 Aug 2099 23:59:59 GMT`;
                 this.setState({hotdog: this.state.hotdog + 1})
             } else {
-                document.cookie = `burger=${this.state.burger + 1}; expires=Fri, 19 Aug 2019 23:59:59 GMT`;
+                document.cookie = `burger=${this.state.burger + 1}; expires=Fri, 19 Aug 2099 23:59:59 GMT`;
                 this.setState({burger: this.state.burger + 1})
             }
         }
         if (votes > 0 && url.includes('subtract')) {
             axios.post(`https://diaper-party.herokuapp.com/${url}`);
 
-            document.cookie = `votes=${votes - 1}; expires=Fri, 19 Aug 2019 23:59:59 GMT`;
+            document.cookie = `votes=${votes - 1}; expires=Fri, 19 Aug 2099 23:59:59 GMT`;
             if (value === 'hotdog') {
-                document.cookie = `hotdog=${this.state.hotdog - 1}; expires=Fri, 19 Aug 2019 23:59:59 GMT`;
+                document.cookie = `hotdog=${this.state.hotdog - 1}; expires=Fri, 19 Aug 2099 23:59:59 GMT`;
                 this.setState({hotdog: this.state.hotdog - 1})
             } else {
-                document.cookie = `burger=${this.state.burger - 1}; expires=Fri, 19 Aug 2019 23:59:59 GMT`;
+                document.cookie = `burger=${this.state.burger - 1}; expires=Fri, 19 Aug 2099 23:59:59 GMT`;
                 this.setState({burger: this.state.burger - 1})
             }
         }
