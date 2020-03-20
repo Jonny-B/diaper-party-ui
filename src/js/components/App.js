@@ -29,13 +29,18 @@ export class App extends Component {
         }
 
         let collection = new Collection(document.cookie.split(';'));
-        let hotdog = parseInt(collection[collection.find_index((s) => {
+        let hotdog = collection[collection.find_index((s) => {
             return s.includes('hotdog')
-        })].split('=')[1]);
-        let burger = parseInt(collection[collection.find_index((s) => {
+        })];
+        
+       hotdog = parseInt(hotdog ? hotdog.split('=')[1] : 0)
+        
+       let burger = collection[collection.find_index((s) => {
             return s.includes('burger')
-        })].split('=')[1]);
-
+        })];
+        
+        burger = parseInt(burger ? burger.split('=')[1] : 0)
+        
         this.setState({hotdog: hotdog, burger: burger})
     }
 
